@@ -17,21 +17,36 @@
 <body class="bg-gray-200 mx-auto max-w-screen-xl">
 
 <!-- Sidebar/menu -->
-<nav class="fixed top-0 left-0 z-30 w-72 bg-white text-gray-600 font-bold hidden lg:block h-full shadow-lg" id="mySidebar">
+<nav id="mySidebar" class="fixed top-0 left-0 z-30 w-72 bg-white text-gray-600 font-bold hidden lg:block h-full shadow-lg sidebar-transition sidebar-hidden">
   <div class="text-center py-16">
     <h3 class="text-2xl italic font-bold">let's work together</h3>
   </div>
-  <a href="javascript:void(0)" onclick=" sidebar_close()" class="block px-4 py-2 text-gray-700 hover:bg-gray-300 lg:hidden">CLOSE</a>
-  <a href="#services" onclick=" sidebar_close()" class="block px-4 py-2 hover:bg-gray-300">SERVICES</a> 
-  <a href="#about" onclick=" sidebar_close()" class="block px-4 py-2 hover:bg-gray-300">ABOUT ME</a> 
-  <a href="#contact" onclick=" sidebar_close()" class="block px-4 py-2 hover:bg-gray-300">CONTACT</a>
+  <!-- Close Button -->
+  <a href="javascript:void(0)" onclick="sidebar_close()" class="block px-4 py-2 text-gray-700 hover:bg-gray-300 lg:hidden">
+    <i class="fas fa-times mr-2"></i> CLOSE
+  </a>
+
+  <!-- Services Link -->
+  <a href="#services" onclick="sidebar_close()" class="block px-4 py-2 hover:bg-gray-300">
+    <i class="fa-solid fa-screwdriver-wrench mr-2"></i> SERVICES
+  </a> 
+
+  <!-- About Me Link -->
+  <a href="#about" onclick="sidebar_close()" class="block px-4 py-2 hover:bg-gray-300">
+    <i class="fas fa-user mr-2"></i> ABOUT ME
+  </a> 
+
+  <!-- Contact Link -->
+  <a href="#contact" onclick="sidebar_close()" class="block px-4 py-2 hover:bg-gray-300">
+    <i class="fas fa-envelope mr-2"></i> CONTACT
+  </a>
 </nav>
 
 <!-- Top menu on small screens 
  -->
-<header class="fixed top-0 left-0 w-full bg-white text-gray-800 text-xl py-4 px-6 lg:hidden flex justify-between items-center shadow-md">
+<header class="fixed top-0 left-0 w-full bg-white text-gray-800 text-xl py-4 px-6 lg:hidden flex justify-between items-center shadow-md z-20">
   <span>Tech Verse</span>
-  <a href="javascript:void(0)" class="text-2xl" onclick=" sidebar_open()">☰</a>
+  <a href="javascript:void(0)" class="text-2xl" onclick=" sidebar_handle()">☰</a>
 </header>
 
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -43,6 +58,7 @@
   <!-- Push down content on small screens --> 
   <div class="lg:hidden h-16"></div>
  <!-- Photo grid -->
+
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
   <!-- Hardware Service -->
   <div class="relative overflow-hidden group">
@@ -50,7 +66,9 @@
     <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
       <h4 class="text-white text-xl font-bold">Hardware Service</h4>
     </div>
+
   </div>
+    
   
   <!-- Networking Equipment Service -->
   <div class="relative overflow-hidden group">
@@ -203,6 +221,14 @@
 </div>
 
 <script>
+  
+  function sidebar_handle() {
+    if(document.getElementById("mySidebar").classList.contains("hidden")) {
+      sidebar_open();
+    }else {
+      sidebar_close();
+    }
+  }
   function  sidebar_open() {
     document.getElementById("mySidebar").classList.remove("hidden");
     document.getElementById("myOverlay").classList.remove("hidden");
