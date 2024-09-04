@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Rishav Maharjan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    body, h1, h2, h3, h4, h5 {font-family: "Raleway", sans-serif;}
+    .image-hover img { transition: opacity 0.3s ease; cursor: pointer; }
+    .image-hover img:hover { opacity: 1; }
+  </style>
+</head>
+<body class="bg-gray-200 mx-auto max-w-screen-xl">
+
+<!-- Sidebar/menu -->
+<nav class="fixed top-0 left-0 z-30 w-72 bg-white text-gray-600 font-bold hidden lg:block h-full shadow-lg" id="mySidebar">
+  <div class="text-center py-16">
+    <h3 class="text-2xl italic font-bold">let's work together</h3>
+  </div>
+  <a href="javascript:void(0)" onclick=" sidebar_close()" class="block px-4 py-2 text-gray-700 hover:bg-gray-300 lg:hidden">CLOSE</a>
+  <a href="#services" onclick=" sidebar_close()" class="block px-4 py-2 hover:bg-gray-300">SERVICES</a> 
+  <a href="#about" onclick=" sidebar_close()" class="block px-4 py-2 hover:bg-gray-300">ABOUT ME</a> 
+  <a href="#contact" onclick=" sidebar_close()" class="block px-4 py-2 hover:bg-gray-300">CONTACT</a>
+</nav>
+
+<!-- Top menu on small screens 
+ -->
+<header class="fixed top-0 left-0 w-full bg-white text-gray-800 text-xl py-4 px-6 lg:hidden flex justify-between items-center shadow-md">
+  <span>Tech Verse</span>
+  <a href="javascript:void(0)" class="text-2xl" onclick=" sidebar_open()">☰</a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="fixed inset-0 bg-black bg-opacity-50 hidden lg:hidden" id="myOverlay" onclick=" sidebar_close()"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="lg:ml-72">
+
+  <!-- Push down content on small screens --> 
+  <div class="lg:hidden h-16"></div>
+ <!-- Photo grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+  <!-- Hardware Service -->
+  <div class="relative overflow-hidden group">
+    <img src="./images/hardware.jpg" class="w-full opacity-80 transition-transform duration-500 group-hover:scale-110" alt="Computer Hardware">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+      <h4 class="text-white text-xl font-bold">Hardware Service</h4>
+    </div>
+  </div>
+  
+  <!-- Networking Equipment Service -->
+  <div class="relative overflow-hidden group">
+    <img src="./images/network.jpg" class="w-full opacity-80 transition-transform duration-500 group-hover:scale-110" alt="Networking Equipment">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+      <h4 class="text-white text-xl font-bold">Networking Equipment</h4>
+    </div>
+  </div>
+  
+  <!-- Software Service -->
+  <div class="relative overflow-hidden group">
+    <img src="./images/software.jpg" class="w-full opacity-80 transition-transform duration-500 group-hover:scale-110" alt="Software Solutions">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+      <h4 class="text-white text-xl font-bold">Software Service</h4>
+    </div>
+  </div>
+  
+  <!-- Consulting Service -->
+  <div class="relative overflow-hidden group">
+    <img src="./images/consulting.jpg" class="w-full opacity-80 transition-transform duration-500 group-hover:scale-110" alt="Consulting">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+      <h4 class="text-white text-xl font-bold">Consulting</h4>
+    </div>
+  </div>
+  
+  <!-- Management Service -->
+  <div class="relative overflow-hidden group">
+    <img src="./images/management.jpg" class="w-full opacity-80 transition-transform duration-500 group-hover:scale-110" alt="Management">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+      <h4 class="text-white text-xl font-bold">Management</h4>
+    </div>
+  </div>
+</div>
+
+  <!-- Pagination -->
+  <!--
+  <div class="text-center py-8">
+    <div class="inline-flex items-center space-x-2">
+      <a href="#" class="p-2 bg-gray-300 rounded hover:bg-gray-400">«</a>
+      <a href="#" class="p-2 bg-gray-900 text-white rounded">1</a>
+      <a href="#" class="p-2 bg-gray-300 rounded hover:bg-gray-400">2</a>
+      <a href="#" class="p-2 bg-gray-300 rounded hover:bg-gray-400">3</a>
+      <a href="#" class="p-2 bg-gray-300 rounded hover:bg-gray-400">4</a>
+      <a href="#" class="p-2 bg-gray-300 rounded hover:bg-gray-400">»</a>
+    </div>
+  </div>
+  -->
+  <!-- Modal for full-size images on click-->
+  <div id="modal01" class="fixed inset-0 bg-black bg-opacity-90 flex justify-center items-center hidden" onclick="this.style.display='none'">
+    <div class="w-3/4 lg:w-1/2">
+      <img id="img01" class="w-full">
+      <p id="caption" class="text-white text-center mt-4">Service description</p>
+    </div>
+    <span class="absolute top-4 right-4 text-white text-4xl cursor-pointer">×</span>
+  </div>
+
+  <!-- About section -->
+  <div id="about" class="bg-gray-800 text-gray-100 py-16">
+    <div class="container mx-auto text-center">
+      <h4 class="text-2xl font-bold mb-4">About Me</h4>
+      <img src="https://scontent.fktm3-1.fna.fbcdn.net/v/t1.6435-1/166007285_476495126804177_8963781390646160584_n.jpg?stp=dst-jpg_s200x200&_nc_cat=107&ccb=1-7&_nc_sid=e4545e&_nc_ohc=6zIL2TD2GjoQ7kNvgHMku6h&_nc_ht=scontent.fktm3-1.fna&oh=00_AYCq9r9xbTqiCmfNE6k6kOkoCA2N8YcLHn_Xsn0fxjWH5A&oe=66FF7DC6" alt="Provider" class="w-full sm:w-1/2 lg:w-1/3 mx-auto rounded-full mb-8">
+      <div class="max-w-lg mx-auto">
+        <h4 class="text-xl font-bold mb-4">Rishav Maharjan</h4>
+        <p class="text-left">
+          I am an experienced IT services provider specializing in computer hardware, networking equipment, software solutions, consulting, and management. My mission is to deliver high-quality services tailored to your needs, ensuring your IT infrastructure is robust and efficient.
+        </p>
+        <p class="mt-4">Email: example@example.com</p>
+        <p>Phone: (123) 456-7890</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact section -->
+<div id="contact" class="bg-gray-200 py-16">
+  <div class="container mx-auto text-center">
+    <h4 class="text-2xl font-bold mb-4">Contact Me</h4>
+    <p>If you need expert IT services or have any questions, feel free to reach out. I look forward to connecting with you!</p>
+    
+    <!-- Social Media Icons -->
+    <div class="flex justify-center space-x-6 mt-8">
+      <a href="mailto:example@example.com" class="text-blue-500 hover:text-blue-700 transition-transform transform hover:scale-110">
+        <i class="fas fa-envelope fa-3x"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/your-profile" target="_blank" class="text-blue-600 hover:text-blue-800 transition-transform transform hover:scale-110">
+        <i class="fab fa-linkedin fa-3x"></i>
+      </a>
+      <a href="https://twitter.com/your-profile" target="_blank" class="text-blue-400 hover:text-blue-600 transition-transform transform hover:scale-110">
+        <i class="fab fa-twitter fa-3x"></i>
+      </a>
+      <a href="https://github.com/your-profile" target="_blank" class="text-gray-800 hover:text-gray-600 transition-transform transform hover:scale-110">
+        <i class="fab fa-github fa-3x"></i>
+      </a>
+      <a href="https://www.facebook.com/your-profile" target="_blank" class="text-blue-800 hover:text-blue-900 transition-transform transform hover:scale-110">
+        <i class="fab fa-facebook fa-3x"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Footer -->
+ <footer class="bg-gray-900 text-gray-100 py-16">
+  <div class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 p-4">
+    
+    <!-- Info Section -->
+    <div>
+      <h3 class="text-xl font-bold">INFO</h3>
+      <p>Providing top-notch IT services including hardware solutions, networking setup, software support, consulting, and management. Dedicated to delivering excellence.</p>
+      <p class="mt-4">Address: 123 Tech Avenue, Suite 456, Silicon Valley, CA 94043</p>
+      <p>Phone: (123) 456-7890</p>
+      <p>Email: <a href="mailto:contact@yourdomain.com" class="text-blue-400 hover:underline">contact@yourdomain.com</a></p>
+    </div>
+    
+    <!-- More Info Section -->
+    <div>
+      <h3 class="text-xl font-bold">MORE INFO</h3>
+      <p>For detailed information about our services or to get a quote, please contact us. We offer personalized solutions to meet your specific needs.</p>
+      <p class="mt-4">Business Hours:</p>
+      <p>Monday - Friday: 9 AM - 6 PM</p>
+      <p>Saturday: 10 AM - 4 PM</p>
+      <p>Sunday: Closed</p>
+    </div>
+    
+    <!-- Follow Us Section -->
+  <!-- FOLLOW US Section -->
+<div>
+  <h3 class="text-xl font-bold text-white">FOLLOW US</h3>
+  <p class="text-gray-300">Stay connected and follow us on social media for updates, tips, and news about our services and the IT industry.</p>
+  <div class="flex space-x-4 mt-4">
+    <a href="https://www.linkedin.com/in/your-profile" target="_blank" class="text-white hover:text-blue-500 transition-transform transform hover:scale-110">
+      <i class="fab fa-linkedin fa-2x"></i>
+    </a>
+    <a href="https://twitter.com/your-profile" target="_blank" class="text-white hover:text-blue-400 transition-transform transform hover:scale-110">
+      <i class="fab fa-twitter fa-2x"></i>
+    </a>
+    <a href="https://github.com/your-profile" target="_blank" class="text-white hover:text-gray-400 transition-transform transform hover:scale-110">
+      <i class="fab fa-github fa-2x"></i>
+    </a>
+    <a href="https://www.facebook.com/your-profile" target="_blank" class="text-white hover:text-blue-700 transition-transform transform hover:scale-110">
+      <i class="fab fa-facebook fa-2x"></i>
+    </a>
+  </div>
+</div>
+
+  
+  </div>
+</footer>
+
+
+</div>
+
+<script>
+  function  sidebar_open() {
+    document.getElementById("mySidebar").classList.remove("hidden");
+    document.getElementById("myOverlay").classList.remove("hidden");
+  }
+  function  sidebar_close() {
+    document.getElementById("mySidebar").classList.add("hidden");
+    document.getElementById("myOverlay").classList.add("hidden");
+  }
+</script>
+</body>
+</html>
+
